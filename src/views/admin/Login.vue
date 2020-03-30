@@ -1,9 +1,9 @@
 <template>
   <div class="admin_login">
-     
+     <tab-bar></tab-bar>
      <el-form label-position="top" label-width="80px" :model="formDate">
-      <h2>管理员登录</h2>
-      <el-form-item label="管理号">
+      <h2>Login</h2>
+      <el-form-item label="帐号">
         <el-input v-model="formDate.userName"></el-input>
       </el-form-item>
       <el-form-item label="密码">
@@ -16,6 +16,7 @@
 
 <script>
 import {userLogin} from 'network/user.js'
+import TabBar from 'components/content/tabBar/TabBar.vue'
 export default {
   name: 'Login',
   inject:['routerRefresh'],   
@@ -26,6 +27,9 @@ export default {
         userPwd:''
       }
     };
+  },
+  components:{
+    TabBar
   },
   watch: {},
   computed: {},
@@ -66,7 +70,7 @@ export default {
 .admin_login{
   width: 100%;
   height: 100vh;
-  background: url('~assets/img/admin/login.png') no-repeat #040116;
+  /* background: url('~assets/img/admin/login.png') no-repeat #040116; */
 }
 
 

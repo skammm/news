@@ -1,6 +1,6 @@
 
 <template>
-  <div id="tabbar">
+  <div id="maintabbar">
      <!-- Static navbar -->
     <nav class="navbar navbar-default navbar-static-top">
       <div class="container">
@@ -67,14 +67,20 @@ export default {
 };
 </script>
 <style  scoped>
- 
+  #maintabbar{
+    color:#fff;
+  }
   .active{
     background: #ccc;
   }
   .navbar{
     margin-bottom: 0px;
+    background:#000000;
   }
-  #app .container{
+  .container{
     color:#fff;
+  }
+  .navbar-default{
+    border:none;
   }
 </style>

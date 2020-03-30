@@ -13,8 +13,8 @@
           <h4>{{item.title}}</h4>
           <p class="name">{{item.pressInfo}}</p>
           <p>作者：{{item.pressName}}</p>
-          <el-button type="primary" @click="sub(item.id,1,item.filed1)">现在订阅</el-button>
-          <el-button type="warning" icon="el-icon-star-off" circle @click="sub(item.id,2)"></el-button>
+          <el-button type="primary" @click="sub(item.id,1,item.filed1,item.title)">现在订阅</el-button>
+          <el-button type="warning" icon="el-icon-star-off" circle @click="sub(item.id,2,filed1,item.title)"></el-button>
        </div>
       </div>
     </div>
@@ -62,7 +62,7 @@ export default {
           });
       })
     },
-    sub(pressId,type,filed1){
+    sub(pressId,type,filed1,filed2){
       this.isSub = false;
       this.form.type = type;
      
@@ -87,7 +87,8 @@ export default {
               pressId,
               userId,
               type,
-              filed1
+              filed1,
+              filed2
             }
             subscribe(FormData).then(res=>{
             console.log(res)
@@ -130,7 +131,9 @@ export default {
 <style  scoped>
   #subscribe{
     padding:2% 15%;
-    background: rgb(241, 239, 239);
+    /* background: rgb(241, 239, 239); */
+    background: #000;
+    /* color: #fff; */
   }
   .s_content{
     background: #fff;

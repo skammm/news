@@ -1,16 +1,20 @@
 <template>
   <div id="home">
-    <title-serch></title-serch>
-    <home-swiper/>
+    <!-- <tab-bar></tab-bar> -->
+    <!-- <title-serch></title-serch> -->
+    <cool-home></cool-home>
+    <!-- <home-swiper/> -->
     <news-serve></news-serve>
-    <lead-news></lead-news>
+    <!-- <lead-news></lead-news> -->
     <!-- <home-tabbar></home-tabbar> -->
     <news-sort></news-sort>
-   
+    
   </div>
 </template>
 
 <script>
+import TabBar from 'components/content/tabBar/TabBar.vue'
+import coolHome from 'views/coolHome/coolHome.vue'
 import TitleSerch from 'views/home/children/TitleSerch'
 import HomeSwiper from 'views/home/children/HomeSwiper'
 import NewsServe from 'views/home/children/NewsServe'
@@ -32,8 +36,13 @@ export default {
     LeadNews,
     HomeTabbar,
     NewsSort,
+    coolHome,
+    TabBar
   }
 };
 </script>
 <style  scoped>
+#home{
+  background: #000000;
+}
 </style>

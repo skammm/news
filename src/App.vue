@@ -2,7 +2,7 @@
   <div id="app">
     <main-tab-bar v-if="routerAlive"/>
     <router-view></router-view>
-    <home-footer></home-footer>
+    <!-- <home-footer></home-footer> -->
   </div>
 
 </template>

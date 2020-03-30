@@ -2,8 +2,6 @@
  <div id="notice">
     <el-carousel :interval="10000" type="card" height="300px">
     <el-carousel-item v-for="item in content" :key="item.id">
-      
-   
         <div class="two">
           <div class="time">
             <div>{{item.createTime |  moment("YYYY-MM-DD hh:mm") }}</div>
@@ -49,9 +47,10 @@ export default {
 <style  scoped>
  
   #notice{
-   background: url('~assets/img/notice/5.jpg');
+   /* background: url('~assets/img/notice/5.jpg'); */
    padding-top: 50px;
    height: calc(100vh - 50px);
+   background:url('~assets/img/notice/star.jpg');
   }
   .el-carousel__item h3 {
     color: #475669;
@@ -65,13 +64,14 @@ export default {
   
   .el-carousel__item:nth-child(2n) {
     /* background-color: #99a9bf; */
-    background: url('~assets/img/notice/5.jpg')
+ background:url('~assets/img/notice/star.jpg');
+    background-size:cover;
   }
   
   .el-carousel__item:nth-child(2n+1) {
     /* background-color: #d3dce6; */
-    background: url('~assets/img/notice/2.jpg');
-   
+    background: url('~assets/img/notice/star.jpg');
+    background-size:cover;
   }
   .two{
     display: flex;

@@ -12,6 +12,9 @@ Router.prototype.push = function push(location) {
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 
+import echarts from 'echarts'
+Vue.prototype.$echarts = echarts
+
 import {Input,Select,Option,Button,Carousel,
   CarouselItem,Menu,MenuItem,Row,Col,
   MenuItemGroup,Submenu,Form,FormItem,

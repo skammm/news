@@ -1,5 +1,5 @@
 <template>
-  <div id="good">
+  <div id="good" class="bg">
     <div class="content">
       <h3>爱阅读，爱生活</h3>
       <h5>将来的你一定会感谢爱阅读的自己</h5>
@@ -31,6 +31,9 @@ export default {
  }
  .content{
    padding:50px 0 0 0;
+   
  }
-
+ .bg{
+   background:rgb(84,92,100);
+ }
 </style>

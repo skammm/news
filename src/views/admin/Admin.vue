@@ -116,8 +116,8 @@ export default {
 };
 </script>
 <style  scoped>
-  #admin{
-    height: calc(100vh - 50px);
+  #admin,.tac,.el-menu{
+    min-height: 600px;
   }
   .el-row,.el-col,.el-menu{
     height: 100%;
@@ -134,6 +134,7 @@ export default {
     left: 300px;
     right:100px;
     bottom: 0;
-
+   
   }
+  
 </style>
