@@ -12,8 +12,9 @@
           <p class="name">{{item.pressInfo}}</p>
           <p>作者：{{item.pressName}}</p>
           <el-button type="info" v-if="formDate.type == 1">开始阅读</el-button>
-          <el-button type="danger" v-if="formDate.type == 1">取消订阅</el-button>
           <el-button type="info" v-if="formDate.type == 2" >现在订阅</el-button>         
+          <el-button type="danger"  @click="cancleSub(item.subId)">{{cancleTitle}}</el-button>
+         
        </div>
       </div>
     </div>
@@ -28,7 +29,7 @@
 </template>
 
 <script>
-import {getSubscribe} from 'network/subscribe.js'
+import {getSubscribe,deleteSubscribe} from 'network/subscribe.js'
 import {findProduct} from 'network/product.js'
 export default {
   name: 'MySubscribe',
@@ -50,11 +51,14 @@ export default {
   computed: {
     title(){
       return this.formDate.type == 1? '我的订阅' : '我的收藏';
+    },
+    cancleTitle(){
+      return this.formDate.type == 1? '取消订阅' : '取消收藏';
     }
   },
   methods: {
     getSubs(){
-      //  this.conten = [];
+       this.conten = [];
        getSubscribe(this.formDate).then(res=>{
           this.getItem = res.data.content;
           console.log(this.getItem)
@@ -62,14 +66,17 @@ export default {
           for(let i=0;i<this.getItem.length;i++){
             arr.push(findProduct(this.getItem[i].pressId))
           }
+          var i=0
           Promise.all(arr).then((res) => {
             console.log(res)
             res.forEach(item=>{
               const obj = item.data.data
                let fs = obj.image.slice(44);
                fs = fs.replace('\\','/');
-               obj.pic=require(`../../${fs}`);     
-              this.conten.push(obj)
+               obj.pic=require(`../../${fs}`);
+               obj.subId = this.getItem[i].id     
+               this.conten.push(obj)
+               i++;
             })
             
           }).catch((error) => {
@@ -107,6 +114,12 @@ export default {
     // nextPage(){
 
     // }
+    cancleSub(id){
+      deleteSubscribe(id).then(res=>{
+        console.log(res)
+        this.getSubs();
+      })
+    }
   },
   created() {
     this.getSubs();

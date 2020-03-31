@@ -15,3 +15,14 @@ export function getSubscribe(formData){
       params:formData
   })
 }
+
+
+export function deleteSubscribe(id){
+  return request({
+      method: 'get',
+      url:'/subscribe/delete',
+      params:{
+        id
+      }
+  })
+}
